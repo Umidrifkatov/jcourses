@@ -17,12 +17,12 @@ class Course(models.Model):
     title = models.CharField(max_length=300)
     shorttitle = models.CharField(max_length=300)
 
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    author = models.ForeignKey(Author, on_delete=models.SET_NULL)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
+    author = models.ForeignKey(Author, on_delete=models.SET_NULL, null=True)
 
-    locationcity = models.CharField()
-    loactionplace = models.CharField()
-    locationpic = models.CharField()
+    locationcity = models.CharField(max_length=300)
+    loactionplace = models.CharField(max_length=300)
+    locationpic = models.CharField(max_length=300)
     
     shortdesc = models.CharField(max_length=300)
     longdesc = models.CharField(max_length=300)
