@@ -1,0 +1,1 @@
+https://docs.google.com/uc?export=open&id={{course.author.img}}

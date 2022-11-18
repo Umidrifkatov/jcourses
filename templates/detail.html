@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row mt-5">
+    
+    <div class="col-lg-8">
+        <h1>{{course.shorttitle}}</h1>
+        <h5 class="abcd">{{ course.title }}</h5>
+
+        <div class="row my-5">
+
+            <div class="col-lg-4 ">
+                <div class="authorimgmask">
+                    <img class="authorimg " src="https://docs.google.com/uc?export=open&id={{course.author.img}}" alt="" >
+                </div>
+                
+            </div>
+            <div class="col-lg-8">
+                <h1 class="">{{course.author.name}}</h1>
+                <h3>{{course.author.description}}</h3>
+            </div>
+
+
+
+
+        </div>
+        
+
+        
+        <p>{{ course.longdesc }}</p>
+    </div>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="col-lg-4 mt-2 text-center">
+        <div class="authorimgmask">
+            <img class="authorimg " src="https://docs.google.com/uc?export=open&id={{course.author.img}}" alt="" >
+        </div>
+        <h2>{{course.author.name}}</h2>
+        <p>{{course.author.description}}</p>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+{% endblock content %}

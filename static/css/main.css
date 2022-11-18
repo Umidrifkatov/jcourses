@@ -4,3 +4,20 @@
 .bg-dark{
     background-color: #252c62!important;
 }
+
+
+
+.authorimgmask{
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 7px solid #886912;
+}
+
+
+.authorimg{
+    max-width: 100%;
+}
+
