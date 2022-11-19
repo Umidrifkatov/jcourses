@@ -6,12 +6,6 @@ def main(request):
     return render(request, 'index.html')
 
 
-
-# def detail(request, pk):
-#     return render(request, 'detail.html')
-
-
-
 class CourseDetailPage(DetailView):
     model = Course
     template_name = 'detail.html'
@@ -22,14 +16,10 @@ class CourseDetailPage(DetailView):
         return context
             
 
-
-
-# class ProductDetailPage(DetailView):
-#     model = Product
-#     template_name = 'pages/product-detail.html'
-#     context_object_name = 'product'
-
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         context['categories'] = ParentCategory.objects.all()
-#         return context
+class CategoryListPage(ListView):
+    model = Category
+    template_name = 'categorylist.html'
+    # paginate_by = 100  # if pagination is desired
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
