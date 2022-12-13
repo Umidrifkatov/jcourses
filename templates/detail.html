@@ -35,12 +35,24 @@
     
     
     
-    <div class="col-lg-4 mt-2 text-center">
-        <div class="authorimgmask">
-            <img class="authorimg " src="https://docs.google.com/uc?export=open&id={{course.author.img}}" alt="" >
-        </div>
-        <h2>{{course.author.name}}</h2>
-        <p>{{course.author.description}}</p>
+    <div class="col-lg-4 mt-2 text-center fixed">
+        <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm border-primary">
+              <div class="card-header py-3 text-white bg-primary border-primary">
+                <h4 class="my-0 fw-normal">Enterprise</h4>
+              </div>
+              <div class="card-body">
+                <h1 class="card-title pricing-card-title">$599</h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li>цена действительна до 01 января 2023 года</li>
+                  
+                </ul>
+                <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Зарегистрироваться
+                  </button>
+              </div>
+            </div>
+          </div>
     </div>
 </div>
 
@@ -50,7 +62,38 @@
 
 
 
-
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="/payment" method="POST"> {% csrf_token %}
+        <div class="modal-body">
+            <input type="text" name="name" id="Name1" class="form-control mb-2" placeholder="ФИО" required>
+            <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">+</span>
+            </div>
+            <input type="text" name="phone" pattern="[789][0-9]{11}" class="form-control mb-2" id="" required
+                placeholder="Телефон" aria-describedby="basic-addon1">
+            </div>
+            <input type="email" name="email" class="form-control mb-2" id="" required
+                placeholder="Почта">
+            <input type="text" name="course" value="{{course.shorttitle}}" hidden>
+            <input type="text" name="price" value="{{599}}" hidden>
+            <input type="textarea" name="message" class="form-control mb-2" id=""
+                placeholder="Сообщение (необязательно)">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit"  class="btn btn-primary">Перейти к оплате</button>
+        </div>
+    </form>
+      </div>
+    </div>
+  </div>
 
 
 {% endblock content %}
