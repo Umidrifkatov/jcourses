@@ -3,7 +3,7 @@
 {% block content %}
 <div class="row mt-5">
     
-    <div class="col-lg-8">
+    <div class="col-lg-9">
         <h1>{{course.shorttitle}}</h1>
         <h5 class="abcd">{{ course.title }}</h5>
 
@@ -24,8 +24,10 @@
 
         
         <p>{{ course.longdesc }}</p>
-        <a href="https://api.paybox.money/payment.php?pg_merchant_id=546973&pg_amount=100&pg_currency=USD&pg_description=Prof.+Benedict+Wilmes&pg_salt=pcXPUNdRw0oUbfak&pg_language=ru&pg_sig=81d7867cd67c300782981f2b9b2a01fd">Оплатить «Prof. Benedict Wilmes» через PayBox.money</a>
-    </div>
+        <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Зарегистрироваться
+        </button>
+        </div>
 
     
     
@@ -35,24 +37,8 @@
     
     
     
-    <div class="col-lg-4 mt-2 text-center fixed">
-        <div class="col">
-            <div class="card mb-4 rounded-3 shadow-sm border-primary">
-              <div class="card-header py-3 text-white bg-primary border-primary">
-                <h4 class="my-0 fw-normal">Enterprise</h4>
-              </div>
-              <div class="card-body">
-                <h1 class="card-title pricing-card-title">$599</h1>
-                <ul class="list-unstyled mt-3 mb-4">
-                  <li>цена действительна до 01 января 2023 года</li>
-                  
-                </ul>
-                <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Зарегистрироваться
-                  </button>
-              </div>
-            </div>
-          </div>
+    <div class="col-3">
+      {% include 'sidebar.html' %}
     </div>
 </div>
 
@@ -66,7 +52,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Регистрация</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <form action="/payment" method="POST"> {% csrf_token %}
@@ -87,7 +73,7 @@
                 placeholder="Сообщение (необязательно)">
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
           <button type="submit"  class="btn btn-primary">Перейти к оплате</button>
         </div>
     </form>

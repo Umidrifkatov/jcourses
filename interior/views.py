@@ -1,7 +1,9 @@
 import email
+from http.client import HTTPResponse
 import random
-from django.shortcuts import redirect, render
-from django.views.generic import ListView, DetailView, CreateView, TemplateView
+from django.shortcuts import get_object_or_404, redirect, render
+from django.views.generic import ListView, DetailView
+
 from .models import Course, Category
 from django.conf import settings
 
@@ -56,8 +58,8 @@ def payment(request):
     phone = a['phone']
     param1 = 'hi'
     salt = 'bye'
-    success_url = 'http://localhost:8000/success_pay'
-    order_id = random.randint(4999, 99999)
+    success_url = 'http://localhost:8000/success_pay/'
+    order_id = random.randint(9999, 9999999)
     description = f'{name} - {course} - {phone}'
     md5hash = hashlib.md5(f"init_payment.php;{a['price']};USD;{description};{settings.MERCHANT_ID};{order_id};{param1};{salt};{success_url};{usermail};{settings.PAY_SECRET}".encode('utf-8')).hexdigest()
     #создаем хеш из последовательности данных
@@ -75,48 +77,65 @@ def payment(request):
 
 
 
-class CourseDetailPage(DetailView):
-    model = Course
-    template_name = 'detail.html'
-    context_object_name = 'course'
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['categories'] = Category.objects.all()
-        return context
-
-
-            
-
-class CategoryListPage(ListView):
-    model = Category
-    template_name = 'categorylist.html'
-    # paginate_by = 100  # if pagination is desired
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        return context
+def coursedetail(request, pk):
+    course = get_object_or_404(Course, pk=pk)
+    return render(request, 'detail.html', {'course': course})
 
 
 
 
-def categories(request):
-    return
+def categories(request): # все категории вместе список
+    all_cat = Category.objects.all()
+    
+    return render(request, 'allcat.html', {'categories': all_cat})
 
 
-def detailcategory(request):
-    return
+def detailcategory(request, pk): # категория подробно
+    category = get_object_or_404(Category, pk=pk)
+    courses = Course.objects.filter(category=category)
+    return render(request, 'detailcat.html', {'category': category, 'courses': courses})
+
+
+
+
 
 
 def courses(request):
-    return
+    allcourses = Course.objects.all()
+    return render(request, 'courses.html', {'courses': allcourses})
 
 
-def success_pay(request):
+
+
+
+
+
+
+
+
+
+
+def success_pay(request): # страница удачного платежа 
     # удачный платеж
-    id_order = request.GET['order_id']
+    id_order = request.GET['pg_order_id']
     print(id_order)
+    faf = {
+        'ordint': id_order
+    }
+    return render(request, 'success_pay.html', context=faf)
 
-    return render(request, 'success_pay')
 
 
-def about(request):
-    return
+
+
+
+
+
+
+
+
+
+
+def about(request): # страница о нас на примере можно сделать остальные страницы
+    return render(request, 'about.html')
+

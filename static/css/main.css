@@ -22,6 +22,25 @@
 }
 
 
+a {
+    color: #252c62;
+    text-decoration: none;
+
+}
+
+a :hover{
+    color: #886912;
+    text-decoration: none;
+    
+}
+
+
+
+.input-group-text{
+    border-radius: 6px 0px 0px 6px !important;
+    font-weight: 400;
+}
+
 
 
 

@@ -21,7 +21,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-light fixed-top">
         <div class="container">
-          <a class="navbar-brand" href="#">
+          <a class="navbar-brand" href="/">
             <img src="{% static 'img/whitelogo.png' %}" alt="" height="30px">
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,20 +30,20 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">О нас</a>
+                <a class="nav-link active" aria-current="page" href="/about">О нас</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Курсы</a>
+                <a class="nav-link active" aria-current="page" href="/courses">Курсы</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Категории</a>
+                <a class="nav-link active" aria-current="page" href="/categories">Категории</a>
               </li>
               
             </ul>
             <div class="d-flex">
                 <i class="bi bi-telephone mx-2"> </i> 998 33 860 80 20 
-                <i class="bi bi-instagram mx-3"></i>
-                <i class="bi bi-facebook"></i>
+                <a href="https://www.instagram.com/docere_education/" style="color: white;"><i class="bi bi-instagram mx-3"></i></a>  
+                <a href="https://www.facebook.com/docereeducation?mibextid=LQQJ4d"style="color: white;" ><i class="bi bi-facebook"></i></a>  
             </div>
           </div>
         </div>
@@ -63,7 +63,7 @@
 <!-- footer -->
       <div class="container">
         <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-          <p class="col-md-4 mb-0 text-muted">&copy; 2022 DOCERE</p>
+           <p class="col-md-4 mb-0 text-muted">&copy; 2022 <a href="https://www.docere.uz" style="color: gray;">DOCERE</a></p>
       
           <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
             <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>

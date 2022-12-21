@@ -1,0 +1,26 @@
+
+<div class="shadow p-3 rounded-2">
+    <h4>Недавние курсы</h4>
+
+    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, nobis. Voluptate accusantium quidem porro hic architecto accusamus, voluptates soluta consectetur tempore vero rerum repellendus obcaecati saepe adipisci iure labore atque.</div>
+    <br><br><br><br><br><br><br><br>
+
+
+    <form action="/connection" method="POST"> {% csrf_token %}
+        <h2>Обратная связь</h2>
+        <input type="text" name="name" id="Name1" class="form-control mb-2" placeholder="Имя" required>
+        <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">+</span>
+        </div>
+        <input type="text" name="phone" pattern="[789][0-9]{11}" class="form-control mb-2" id="" required
+            placeholder="Телефон" aria-describedby="basic-addon1">
+        </div>
+        <input type="email" name="email" class="form-control mb-2" id="" required
+            placeholder="Почта">
+        <input type="textarea" name="message" class="form-control mb-2" id=""
+            placeholder="Сообщение">
+        <button class="btn btn-primary">Отправить</button>
+    </form>
+</div>
+
