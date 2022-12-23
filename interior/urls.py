@@ -1,7 +1,11 @@
 
-from os import name
+
 from django.urls import path
 from .views import coursedetail, detailcategory, main, payment, categories, about, success_pay, courses, connection
+from django.conf import settings
+from django.conf.urls.static import static
+
+
 
 urlpatterns = [
     path('', main),
@@ -16,3 +20,6 @@ urlpatterns = [
     path('connection', connection, name='conn'),
     path('about/', about, name='about'),
 ]
+
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

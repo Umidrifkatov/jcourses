@@ -15,7 +15,7 @@ class Category(models.Model):
 
 class Author(models.Model):
     name = models.CharField(max_length=300, verbose_name='Имя')
-    img = models.CharField(max_length=400, verbose_name='Фото GDrive link', help_text='желательно PNG на прозрачном фоне - введите айди фото с гугл диска')
+    img = models.ImageField(upload_to='authorsimage/', height_field=None, width_field=None, max_length=100)
     description = models.TextField(max_length=500, verbose_name='Описание спикера', null=True)
     def __str__(self):
         return f'{self.name}'
@@ -70,7 +70,7 @@ class Course(models.Model):
 class CourseImage(models.Model):
     belongs_to = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='images',
                                             verbose_name='Принадлежит курсу')
-    image_file = models.CharField(max_length=400, verbose_name='Ссылка на изображение')
+    image_file = models.ImageField(upload_to='cases/',verbose_name='изображение')
 
     def __str__(self):
         return f'{self.belongs_to.shorttitle}'
@@ -82,7 +82,7 @@ class CourseImage(models.Model):
 class PostCourseImage(models.Model):
     belongs_to = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='pimages',
                                             verbose_name='Принадлежит курсу')
-    image_file = models.CharField(max_length=400, verbose_name='Ссылка на изображение')
+    image_file = models.ImageField(upload_to='photoarchive/',verbose_name='изображение')
     
 
     def __str__(self):
