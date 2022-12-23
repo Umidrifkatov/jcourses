@@ -130,7 +130,19 @@ STATICFILES_STORAGE="whitenoise.storage.CompressedManifestStaticFilesStorage"
 # STATICFILES_DIRS = [BASE_DIR / "static"]
 
 
+STATIC_URL = "static/"
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+import dj_database_url
+
+DATABASE_URL = 'postgresql://postgres:xBIIhg8tGRqNkK6Bmrfk@containers-us-west-92.railway.app:6285/railway'
+
+DATABASES = {
+    "default": dj_database_url.config(default=DATABASE_URL, conn_max_age=1800),
+}

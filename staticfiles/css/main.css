@@ -1,0 +1,71 @@
+
+
+
+.bg-dark{
+    background-color: #252c62!important;
+}
+
+
+
+.authorimgmask{
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 7px solid #886912;
+}
+
+
+.authorimg{
+    max-width: 100%;
+}
+
+
+a {
+    color: #252c62;
+    text-decoration: none;
+
+}
+
+a :hover{
+    color: #886912;
+    text-decoration: none;
+    
+    
+}
+
+
+
+.input-group-text{
+    border-radius: 6px 0px 0px 6px !important;
+    font-weight: 400;
+}
+
+
+.btn-success{
+    /* color: #252c62 !important; */
+    background-color: #886912 !important;
+    border-color: #886912;
+}
+
+.btn-primary{
+    /* color: #252c62 !important; */
+    background-color: #252c62 !important;
+    border-color: #252c62;
+}
+
+
+.mycolor1{
+    color: #252c62!important;
+}
+
+
+
+.mycard{
+    color: white;
+    background-color: #252c62;
+
+    
+}
+
