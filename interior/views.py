@@ -62,7 +62,7 @@ def payment(request):
     phone = a['phone']
     param1 = 'hi'
     salt = 'bye'
-    success_url = 'http://localhost:8000/success_pay/'
+    success_url = 'https://www.docere.uz/success_pay/'
     order_id = random.randint(9999, 9999999)
     description = f'{name} - {course} - {phone}'
     md5hash = hashlib.md5(f"init_payment.php;{a['price']};USD;{description};{settings.MERCHANT_ID};{order_id};{param1};{salt};{success_url};{usermail};{settings.PAY_SECRET}".encode('utf-8')).hexdigest()
