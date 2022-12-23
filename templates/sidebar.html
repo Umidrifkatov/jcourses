@@ -3,7 +3,9 @@
     <h4>Рекомендуем</h4>
 
     <div>{% for i in r %}
+        <hr>
         <div class="my-3"><a href="/detail/{{i.id}}"> {{i.title}}</a> </div>
+        
         {% endfor %}
 
 
@@ -15,6 +17,7 @@
 <div class="shadow p-3 rounded-2">
     <form action="/connection" method="POST"> {% csrf_token %}
         <h4>Обратная связь</h4>
+        <hr>
         <input type="text" name="name" id="Name1" class="form-control mb-2" placeholder="Имя" required>
         <div class="input-group">
         <div class="input-group-prepend">
