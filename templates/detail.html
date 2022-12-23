@@ -3,30 +3,102 @@
 {% block content %}
 <div class="row mt-5">
     
-    <div class="col-lg-9">
-        <h1>{{course.shorttitle}}</h1>
-        <h5 class="abcd">{{ course.title }}</h5>
+    <div class="col-md-9">
+        <h1>{{course.title}}</h1>
+        
 
-        <div class="row my-5">
 
-            <div class="col-lg-4 ">
+
+     
+        <div class="row my-3 mycard p-3 rounded-5 m-2 shadow ">
+
+            <div class="col-lg-4 justify-content-center d-flex">
                 <div class="authorimgmask">
                     <img class="authorimg " src="https://docs.google.com/uc?export=open&id={{course.author.img}}" alt="" >
                 </div>
                 
             </div>
-            <div class="col-lg-8">
-                <h1 class="">{{course.author.name}}</h1>
-                <h3>{{course.author.description}}</h3>
+            <div class="col-lg-8 ">
+                <h2 class="">{{course.author.name}}</h2>
+                <div class="fs-4">{{course.author.description}}</div>
             </div>
         </div>
         
 
+
+
+
+
+
+
+
+
+
+        <div class="text-center justify-content-center">
+        <div class="shadow p-3 rounded-2 mb-4">
+          
+          <h4>Регистрация</h4>
+          <div> {{course.locationcity}},
+            {{course.loactionplace}} </div>
+          
+
+          {% if issale %}
+            <div class="d-flex flex-row justify-content-center">
+              <div class="text-decoration-line-through text-secondary fs-4 p-2"> ${{course.price2}} </div>
+              <div class="fs-1">${{course.price1}}</div>
+            </div>
+
+            до {{course.regdate}} 
+          
+          
+        {% else %}
+          <div>стоимость регистрации <h4>${{course.price2}}</h4></div> 
+          <div>{{course.startdate}}</div>
+
+        {% endif %}
+  
+        
+          
+          <br>
+          <button type="button" class="btn btn-lg btn-primary my-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Зарегистрироваться 
+          </button>
+
+
+
+        </div>
+      </div>
+        
         
         <p>{{ course.longdesc }}</p>
-        <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          Зарегистрироваться
-        </button>
+        
+
+
+
+
+        <div id="carouselExampleControls" class="carousel slide my-3" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="..." class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="..." class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="..." class="d-block w-100" alt="...">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+
+
         </div>
 
     
@@ -37,7 +109,7 @@
     
     
     
-    <div class="col-3">
+    <div class="col-md-3">
       {% include 'sidebar.html' %}
     </div>
 </div>
@@ -68,7 +140,7 @@
             <input type="email" name="email" class="form-control mb-2" id="" required
                 placeholder="Почта">
             <input type="text" name="course" value="{{course.shorttitle}}" hidden>
-            <input type="text" name="price" value="{{599}}" hidden>
+            <input type="text" name="price" value="{{couserealprice}}" hidden>
             <input type="textarea" name="message" class="form-control mb-2" id=""
                 placeholder="Сообщение (необязательно)">
         </div>

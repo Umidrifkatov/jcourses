@@ -1,7 +1,7 @@
 
 from os import name
 from django.urls import path
-from .views import coursedetail, detailcategory, main, payment, categories, about, success_pay, courses
+from .views import coursedetail, detailcategory, main, payment, categories, about, success_pay, courses, connection
 
 urlpatterns = [
     path('', main),
@@ -13,6 +13,6 @@ urlpatterns = [
     path('courses/', courses, name='courses'),
 
     path('category/<int:pk>/', detailcategory, name='detcat'),
-
+    path('connection', connection, name='conn'),
     path('about/', about, name='about'),
 ]

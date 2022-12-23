@@ -53,6 +53,8 @@ class Course(models.Model):
     price1 = models.IntegerField( verbose_name='Цена ранней рег')
     price2 = models.IntegerField( verbose_name='Цена поздней рег')
 
+    recomended = models.BooleanField(verbose_name='Рекомендовать', default=False)
+
     ended = models.BooleanField(default=False, verbose_name='Окончен')
 
     def __str__(self):

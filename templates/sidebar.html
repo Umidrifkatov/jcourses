@@ -1,13 +1,20 @@
 
+<div class="shadow p-3 rounded-2 mb-4">
+    <h4>Рекомендуем</h4>
+
+    <div>{% for i in r %}
+        <div class="my-3"><a href="/detail/{{i.id}}"> {{i.title}}</a> </div>
+        {% endfor %}
+
+
+    </div>
+    
+
+</div>
+
 <div class="shadow p-3 rounded-2">
-    <h4>Недавние курсы</h4>
-
-    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, nobis. Voluptate accusantium quidem porro hic architecto accusamus, voluptates soluta consectetur tempore vero rerum repellendus obcaecati saepe adipisci iure labore atque.</div>
-    <br><br><br><br><br><br><br><br>
-
-
     <form action="/connection" method="POST"> {% csrf_token %}
-        <h2>Обратная связь</h2>
+        <h4>Обратная связь</h4>
         <input type="text" name="name" id="Name1" class="form-control mb-2" placeholder="Имя" required>
         <div class="input-group">
         <div class="input-group-prepend">
@@ -20,7 +27,7 @@
             placeholder="Почта">
         <input type="textarea" name="message" class="form-control mb-2" id=""
             placeholder="Сообщение">
-        <button class="btn btn-primary">Отправить</button>
+        <button class="btn btn-primary w-100">Отправить</button>
     </form>
-</div>
 
+</div>

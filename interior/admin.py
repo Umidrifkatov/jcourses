@@ -24,8 +24,8 @@ class PostCourseImageInline(admin.StackedInline):
     extra = 0
 
 class CourseAdmin(admin.ModelAdmin):
-    list_display = ('shorttitle', 'startdate','author', 'category', 'ended',)
-    list_editable = ('ended',)
+    list_display = ('shorttitle', 'startdate','author', 'category', 'ended', 'recomended')
+    list_editable = ('recomended','ended',)
     inlines = [
         CourseImageInline, PostCourseImageInline,
     ]

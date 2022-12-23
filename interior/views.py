@@ -1,3 +1,4 @@
+import datetime
 import email
 from http.client import HTTPResponse
 import random
@@ -38,6 +39,9 @@ def main(request):
     return render(request, 'index.html')
 
 
+def recomendations():
+    reco3 = Course.objects.filter(recomended=True)
+    return reco3
 
 
 def payment(request):
@@ -79,7 +83,13 @@ def payment(request):
 
 def coursedetail(request, pk):
     course = get_object_or_404(Course, pk=pk)
-    return render(request, 'detail.html', {'course': course})
+    if course.regdate > datetime.date.today():
+        couserealprice = course.price1
+        issale = True
+    else:
+        couserealprice = course.price2
+        issale = False
+    return render(request, 'detail.html', {'course': course, 'couserealprice': couserealprice, 'issale': issale, 'r': recomendations()})
 
 
 
@@ -87,13 +97,13 @@ def coursedetail(request, pk):
 def categories(request): # все категории вместе список
     all_cat = Category.objects.all()
     
-    return render(request, 'allcat.html', {'categories': all_cat})
+    return render(request, 'allcat.html', {'categories': all_cat, 'r': recomendations()})
 
 
 def detailcategory(request, pk): # категория подробно
     category = get_object_or_404(Category, pk=pk)
     courses = Course.objects.filter(category=category)
-    return render(request, 'detailcat.html', {'category': category, 'courses': courses})
+    return render(request, 'detailcat.html', {'category': category, 'courses': courses, 'r': recomendations()})
 
 
 
@@ -102,7 +112,7 @@ def detailcategory(request, pk): # категория подробно
 
 def courses(request):
     allcourses = Course.objects.all()
-    return render(request, 'courses.html', {'courses': allcourses})
+    return render(request, 'courses.html', {'courses': allcourses, 'r': recomendations()})
 
 
 
@@ -122,6 +132,8 @@ def success_pay(request): # страница удачного платежа
     faf = {
         'ordint': id_order
     }
+    message_text = f'Произведена оплата docere.uz \n\n ID {id_order}\n\nhttps://my.paybox.money/payin'
+    send_telegram(message_text)
     return render(request, 'success_pay.html', context=faf)
 
 
@@ -137,5 +149,23 @@ def success_pay(request): # страница удачного платежа
 
 
 def about(request): # страница о нас на примере можно сделать остальные страницы
-    return render(request, 'about.html')
+    return render(request, 'about.html', { 'r': recomendations()})
 
+
+
+def connection(request):
+    if request.method == "POST":
+        phone = request.POST['phone']
+        name = request.POST['name']
+        email = request.POST['email']
+        message = request.POST['message']
+        
+        a = f"""Запрос на обратную связь с docere.uz
+<strong>Имя</strong>  {name}
+<strong>Телефон</strong>  +{phone}
+<strong>Почта</strong>  {email}
+<strong>Сообщение</strong>   {message}"""
+        send_telegram(a)
+        return redirect('https://www.docere.uz')
+    else:
+        return redirect('https://www.docere.uz')

@@ -4,5 +4,12 @@
 
 
 {% block content %}
-<h1>success payment id - {{ordint}}</h1>
+
+<div class="d-flex justify-content-center">
+
+<div class="alert alert-success px-5 text-center" role="alert">
+    <h3 class="p-5">Платеж принят <br> <br><br> ID {{ordint}}</h3>
+  </div>
+
+</div>
 {% endblock %}
