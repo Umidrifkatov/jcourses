@@ -13,7 +13,7 @@
     height: 200px;
     border-radius: 50%;
     overflow: hidden;
-    border: 7px solid #886912;
+    border: 7px solid #977d36;
 }
 
 
@@ -29,7 +29,7 @@ a {
 }
 
 a :hover{
-    color: #886912;
+    color: #977d36;
     text-decoration: none;
     
     
@@ -45,8 +45,8 @@ a :hover{
 
 .btn-success{
     /* color: #252c62 !important; */
-    background-color: #886912 !important;
-    border-color: #886912;
+    background-color: #977d36 !important;
+    border-color: #977d36;
 }
 
 .btn-primary{
@@ -69,3 +69,23 @@ a :hover{
     
 }
 
+.mycarouselitem{
+    background-color: #252c62;
+    /* background: linear-gradient(to bottom right, #161a3a, #4957be); */
+}
+
+
+.opacitlight{
+    background-color: rgba(255, 255, 255, 0.397);
+}
+
+
+
+.authorimgmask2{
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 7px solid #252c62;
+}
