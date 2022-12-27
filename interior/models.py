@@ -91,3 +91,14 @@ class PostCourseImage(models.Model):
     class Meta:
         verbose_name = 'Фотоотчет'
         verbose_name_plural = 'Фотоотчет'
+
+
+class Webinar(models.Model):
+    poster = models.ImageField(upload_to='webinarposter/', verbose_name='изображение')
+
+    # def __str__(self):
+    #     return f'{self.belongs_to.shorttitle}'
+
+    class Meta:
+        verbose_name = 'Вебинар'
+        verbose_name_plural = 'Вебинары'

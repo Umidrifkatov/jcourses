@@ -2,54 +2,115 @@
 
 
 {% block content %}
+
+
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      
+
+
+        {% for course in courses %}
+        <div class="carousel-item active my-3 text-light">
+            <div class="w-100 d-block">
+                <div class="mycarouselitem rounded-3" >
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="p-4">
+                                <h1 class="my-2">{{course.shorttitle}}</h1>
+                                <p class="my-2">{{course.shortdesc}}</p>
+                                <p> {{course.locationcity}}, {{course.loactionplace}}</p>
+                                
+                                <form action="/detail/{{course.id}}">
+                                    <input type="submit" class="btn btn-success my-2 px-5" value="Подробнее">
+                                </form>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4">
+                                <div class="rounded opacitlight" >
+                                    
+
+                                    <div class="row p-4" >
+                                        <div class="col-md-7 ">
+                                            <h3>{{course.author.name}}</h3>
+                                            <h5 class="my-4">{{course.author.description}}</h5>
+                                        </div>
+                                        <div class="col-lg-5 justify-content-center d-flex">
+                                            <div class="authorimgmask2 my-2">
+                                                <img class="authorimg " src="{{course.author.img.url}}" alt="" >
+                                            </div>
+                                        </div>
+                                      </div>
+
+                                </div>
+                                
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+          </div>
+
+        {% endfor %}
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
 	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="">
-    <div class="rounded-2 shadow p-3 mb-4" >
-    <h1 class="mb-3 mycolor1">О нас</h1>
-    <p class="fs-5"> 
-    Семинары, курсы повышения квалификации, программы профессиональной подготовки по различным направлениям стоматологии. Преподаватели и консультанты. Ведущие специалисты, спикеры мирового уровня по всем направлениям стоматологии.
-    </p>
-    <br>
-    <form action="https://www.instagram.com/docere_education/">
-        <input type="submit" value="Подробнее" class="btn btn-success">
-    </form>
-    
-</div>
-<iframe width="100%" height="450" src="https://www.youtube.com/embed/t9lJZ_L6O94" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<div class="mt-4">
-    <i class="bi bi-telephone mx-2"> </i> 998 33 860 80 20 
-    <a href="https://www.instagram.com/docere_education/" style="color: #252c62;"><i class="bi bi-instagram mx-3"></i></a>  
-    <a href="https://www.facebook.com/docereeducation?mibextid=LQQJ4d"style="color: #252c62;" ><i class="bi bi-facebook"></i></a>  
+<h1 class="my-3 mycolor1">Вебинары</h1>
+<div class="row my-4">
+    {% for h in webinars %}
+        <div>
+            <img src="{{h.poster.url}}" alt="" style="max-width: 330px; max-width: 330px;">
+        </div>
+        
+    {% endfor %}
 </div>
 
+<div class="row my-3">
+    <div class="col-md-6">
+        <div class="mt-4">
+            <div class="rounded-2 shadow p-3 mb-4" >
+            <h1 class="mb-3 mycolor1">О нас</h1>
+            <p class="fs-5"> 
+            Семинары, курсы повышения квалификации, программы профессиональной подготовки по различным направлениям стоматологии. Преподаватели и консультанты. Ведущие специалисты, спикеры мирового уровня по всем направлениям стоматологии.
+            </p>
+            <br>
+            <form action="https://www.instagram.com/docere_education/">
+                <input type="submit" value="Подробнее" class="btn btn-success">
+            </form>
+            
+        </div>
+        <div class="mt-4">
+            <i class="bi bi-telephone mx-2"> </i> 998 33 860 80 20 
+            <a href="https://www.instagram.com/docere_education/" style="color: #252c62;"><i class="bi bi-instagram mx-3"></i></a>  
+            <a href="https://www.facebook.com/docereeducation?mibextid=LQQJ4d"style="color: #252c62;" ><i class="bi bi-facebook"></i></a>  
+        </div>
+        
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="mt-4">
+            <iframe width="100%" height="330" src="https://www.youtube.com/embed/t9lJZ_L6O94" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        
+    </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
 
 
 

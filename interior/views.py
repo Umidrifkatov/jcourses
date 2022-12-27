@@ -5,7 +5,7 @@ import random
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views.generic import ListView, DetailView
 
-from .models import Course, Category
+from .models import Course, Category, Webinar
 from django.conf import settings
 
 import requests
@@ -35,13 +35,16 @@ def send_telegram(a):
     bot.send_message(settings.GROUP_ID, a, parse_mode='HTML')
 
 
-def main(request):
-    return render(request, 'index.html')
+
 
 
 def recomendations():
     reco3 = Course.objects.filter(recomended=True)
     return reco3
+
+def main(request):
+    webinars = Webinar.objects.all()
+    return render(request, 'index.html', {'courses': recomendations(), 'webinars': webinars})
 
 
 def payment(request):

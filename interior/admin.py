@@ -30,3 +30,9 @@ class CourseAdmin(admin.ModelAdmin):
         CourseImageInline, PostCourseImageInline,
     ]
 admin.site.register(Course, CourseAdmin)
+
+
+
+class WebinarAdmin(admin.ModelAdmin):
+    pass
+admin.site.register(Webinar, WebinarAdmin)

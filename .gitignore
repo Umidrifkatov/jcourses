@@ -18,10 +18,10 @@ env/
 
 
 # exclude everything
-mediafiles/*
+
 
 # exception to the rule
-!mediafiles/.gitkeep 
+
 
 
 
