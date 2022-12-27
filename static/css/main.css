@@ -25,6 +25,7 @@
 a {
     color: #252c62;
     text-decoration: none;
+    
 
 }
 
@@ -89,3 +90,6 @@ a :hover{
     overflow: hidden;
     border: 7px solid #252c62;
 }
+
+
+
