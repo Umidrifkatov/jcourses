@@ -9,8 +9,53 @@
       
 
 
-        {% for course in courses %}
         <div class="carousel-item active my-3 text-light">
+            <div class="w-100 d-block">
+                <div class="mycarouselitem rounded-3" >
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="p-4">
+                                <h1 class="my-2">{{courses.all.0.shorttitle}}</h1>
+                                <p class="my-2">{{courses.all.0.shortdesc}}</p>
+                                <p> {{courses.all.0.locationcity}}, {{courses.all.0.loactionplace}}</p>
+                                
+                                <form action="/detail/{{courses.all.0.id}}">
+                                    <input type="submit" class="btn btn-success my-2 px-5" value="Подробнее">
+                                </form>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4">
+                                <div class="rounded opacitlight" >
+                                    
+
+                                    <div class="row p-4" >
+                                        <div class="col-md-7 ">
+                                            <h3>{{courses.all.0.author.name}}</h3>
+                                            <h5 class="my-4">{{courses.all.0.author.description}}</h5>
+                                        </div>
+                                        <div class="col-lg-5 justify-content-center d-flex">
+                                            <div class="authorimgmask2 my-2">
+                                                <img class="authorimg " src="https://drive.google.com/uc?export=view&id={{courses.all.0.author.img}}" alt="" >
+                                            </div>
+                                        </div>
+                                      </div>
+
+                                </div>
+                                
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+          </div>
+
+        {% for course in courses %}
+        <div class="carousel-item my-3 text-light">
             <div class="w-100 d-block">
                 <div class="mycarouselitem rounded-3" >
                     <div class="row">
@@ -76,7 +121,7 @@
 <div class="row my-4">
     {% for h in webinars %}
         <div>
-            <img src="{{h.poster.url}}" alt="" style="max-width: 330px; max-width: 330px;">
+            <img src="https://drive.google.com/uc?export=view&id={{h.poster}}" alt="" style="max-width: 330px; max-width: 330px;">
         </div>
         
     {% endfor %}

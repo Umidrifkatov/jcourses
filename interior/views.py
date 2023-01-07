@@ -83,7 +83,6 @@ def payment(request):
     return redirect(resulturl.text)
 
 
-
 def coursedetail(request, pk):
     course = get_object_or_404(Course, pk=pk)
     if course.regdate > datetime.date.today():
@@ -93,7 +92,6 @@ def coursedetail(request, pk):
         couserealprice = course.price2
         issale = False
     return render(request, 'detail.html', {'course': course, 'couserealprice': couserealprice, 'issale': issale, 'r': recomendations()})
-
 
 
 
@@ -110,21 +108,9 @@ def detailcategory(request, pk): # категория подробно
 
 
 
-
-
-
 def courses(request):
     allcourses = Course.objects.all()
     return render(request, 'courses.html', {'courses': allcourses, 'r': recomendations()})
-
-
-
-
-
-
-
-
-
 
 
 
@@ -141,19 +127,8 @@ def success_pay(request): # страница удачного платежа
 
 
 
-
-
-
-
-
-
-
-
-
-
 def about(request): # страница о нас на примере можно сделать остальные страницы
     return render(request, 'about.html', { 'r': recomendations()})
-
 
 
 def connection(request):
@@ -174,12 +149,8 @@ def connection(request):
         return redirect('https://www.docere.uz')
 
 
-
-
-
 def polit(request):
     return render(request, 'confid.html', { 'r': recomendations()})
-
 
 
 def public(request):
