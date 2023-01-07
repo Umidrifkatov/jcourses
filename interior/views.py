@@ -12,7 +12,7 @@ import requests
 import xml.etree.ElementTree as ET
 import hashlib
 
-from django.http import HttpResponse
+from django.http import HttpResponse, response
 from django.core.exceptions import PermissionDenied
 from django.views.decorators.csrf import csrf_exempt
 import telebot
@@ -172,3 +172,15 @@ def connection(request):
         return redirect('https://www.docere.uz')
     else:
         return redirect('https://www.docere.uz')
+
+
+
+
+
+def polit(request):
+    return render(request, 'confid.html', { 'r': recomendations()})
+
+
+
+def public(request):
+    return render(request, 'public.html', { 'r': recomendations()})

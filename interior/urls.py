@@ -1,7 +1,7 @@
 
 
 from django.urls import path
-from .views import coursedetail, detailcategory, main, payment, categories, about, success_pay, courses, connection
+from .views import coursedetail, detailcategory, main, payment, categories, about, success_pay, courses, connection, polit, public
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -19,6 +19,8 @@ urlpatterns = [
     path('category/<int:pk>/', detailcategory, name='detcat'),
     path('connection', connection, name='conn'),
     path('about/', about, name='about'),
+    path('politics/', polit, name='polit'),
+    path('public/', public, name='public'),
 ]
 
 

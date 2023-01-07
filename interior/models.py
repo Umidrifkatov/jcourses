@@ -45,7 +45,7 @@ class Course(models.Model):
     loactionplace = models.CharField(max_length=300, verbose_name='Место')
 
     locationpic = models.CharField(max_length=300, verbose_name='Фото локации (места проведения)', help_text='введите ID картинки с гугл диска')
-    
+    videoframe = models.CharField(max_length=1000, verbose_name='Видео с ютьюб iframe', help_text='введите ссылку на iframe с youtube.com', null=True, blank=True)
     startdate = models.DateField( verbose_name='Дата начала')
     enddate = models.DateField( verbose_name='Дата конца')
     regdate = models.DateField( verbose_name='Дата ранней регистрации (До)')
