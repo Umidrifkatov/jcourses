@@ -37,7 +37,6 @@ def send_telegram(a):
 
 
 
-
 def recomendations():
     reco3 = Course.objects.filter(recomended=True)
     return reco3
@@ -109,7 +108,7 @@ def detailcategory(request, pk): # категория подробно
 
 
 def courses(request):
-    allcourses = Course.objects.all()
+    allcourses = Course.objects.order_by('-startdate')
     return render(request, 'courses.html', {'courses': allcourses, 'r': recomendations()})
 
 

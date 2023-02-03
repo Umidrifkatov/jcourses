@@ -33,10 +33,7 @@ class Course(models.Model):
     
     shortdesc = models.CharField(max_length=300, verbose_name='Краткое описание')
     longdesc = models.TextField(max_length=1000, verbose_name='Полное описание')
-    
-    
-
-
+    pdf_file = models.CharField(max_length=100, verbose_name='ID файла для ', null=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True, verbose_name='Категория')
     author = models.ForeignKey(Author, on_delete=models.SET_NULL, null=True, verbose_name='Спикер')
 
@@ -63,8 +60,6 @@ class Course(models.Model):
     class Meta:
         verbose_name = 'Курс'
         verbose_name_plural = 'Курсы'
-
-
 
 
 class CourseImage(models.Model):

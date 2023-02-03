@@ -27,7 +27,7 @@ PAY_SECRET  = 'NF6ixnEQhXx9WeBk'
 TOKEN = "5785041337:AAHKvvunTTaxewkOiDs4a7j_jEI0l05Hjlg"
 GROUP_ID = "-818175417"
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 

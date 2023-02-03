@@ -14,11 +14,5 @@ a = requests.post("https://api.paybox.money/init_payment.php", data=the_data, he
 responseXml = ET.fromstring(a.content.decode('utf-8'))
 testId = responseXml.find('pg_redirect_url')
 
-
 # print(a.content.decode('utf-8'))
 print(testId.text)
-
-
-
-
-

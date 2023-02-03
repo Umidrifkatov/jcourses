@@ -109,19 +109,13 @@
 
 
 
-
-
-
-
-
-
-
 	
-<h1 class="my-3 mycolor1">Вебинары</h1>
+<h1 class="my-3 mycolor1">Прошедшие курсы</h1>
 <div class="row my-4">
     {% for h in webinars %}
         <div>
-            <img src="https://drive.google.com/uc?export=view&id={{h.poster}}" alt="" style="max-width: 330px; max-width: 330px;">
+            <a href="#"><img src="https://drive.google.com/uc?export=view&id={{h.poster}}" alt="" style="max-width: 330px; max-width: 330px;"></a>
+            
         </div>
         
     {% endfor %}
