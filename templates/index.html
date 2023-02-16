@@ -54,7 +54,7 @@
             </div>
           </div>
 
-        {% for course in courses %}
+        {% for course in courses|slice:"1:" %}
         <div class="carousel-item my-3 text-light">
             <div class="w-100 d-block">
                 <div class="mycarouselitem rounded-3" >
