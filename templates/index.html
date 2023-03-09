@@ -114,15 +114,15 @@
 <div class="row my-4">
         <div class="row ">
             {% for co in ended  %}
-            <div class="col-lg-3">
+            <div class="col-md-3 mx-auto" style="min-width: 300px; max-width: 350px;">
                 <a href="detail/{{co.id}}">
                 <div class=" shadow p-3 rounded-2 m-2 mx-auto d-flex align-items-start flex-column" style="min-height: 280px;">
                     <h5>{{co.title}} </h5>
                 
                     
                     <div class="mt-auto w-100">
-                        <p class="col">{{co.author.name}}</p>
-                        <p>Завершен {{co.startdate}} </p>
+                        <h5>{{co.author.name}}</h5>
+                        <p>{{co.startdate}} </p>
                         <button class="btn btn-primary w-100"> Подробнее</button>
                         
                     </div>
