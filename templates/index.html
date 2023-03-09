@@ -109,16 +109,32 @@
 
 
 
-	
+
 <h1 class="my-3 mycolor1">Прошедшие курсы</h1>
 <div class="row my-4">
-    {% for h in webinars %}
-        <div>
-            <a href="#"><img src="https://drive.google.com/uc?export=view&id={{h.poster}}" alt="" style="max-width: 330px; max-width: 330px;"></a>
-            
+        <div class="row ">
+            {% for co in ended  %}
+            <div class="col-lg-3">
+                <a href="detail/{{co.id}}">
+                <div class=" shadow p-3 rounded-2 m-2 mx-auto d-flex align-items-start flex-column" style="min-height: 280px;">
+                    <h5>{{co.title}} </h5>
+                
+                    
+                    <div class="mt-auto w-100">
+                        <p class="col">{{co.author.name}}</p>
+                        <p>Завершен {{co.startdate}} </p>
+                        <button class="btn btn-primary w-100"> Подробнее</button>
+                        
+                    </div>
+                </div>
+                
+                </a>
+               
+                
+
+            </div>
+            {% endfor %}
         </div>
-        
-    {% endfor %}
 </div>
 
 <div class="row my-3">

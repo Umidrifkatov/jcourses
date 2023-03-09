@@ -42,8 +42,8 @@ def recomendations():
     return reco3
 
 def main(request):
-    webinars = Webinar.objects.all()
-    return render(request, 'index.html', {'courses': recomendations(), 'webinars': webinars})
+    endedcourses = Course.objects.filter(ended=True)
+    return render(request, 'index.html', {'courses': recomendations(), 'ended': endedcourses})
 
 
 def payment(request):
